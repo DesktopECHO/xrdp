@@ -1,0 +1,67 @@
+Source: xrdp
+Maintainer: Debian Remote Maintainers <debian-remote@lists.debian.org>
+Uploaders:
+ Dominik George <natureshadow@debian.org>,
+ Mike Gabriel <sunweaver@debian.org>,
+ Thorsten Glaser <tg@mirbsd.de>,
+ Alex Myczko <tar@debian.org>,
+Section: net
+Priority: optional
+Build-Depends:
+ autoconf (>= 2.59),
+ automake (>= 1.6),
+ check,
+ x264,
+ libx264-dev,
+ libfdk-aac-dev,
+ libxkbfile-dev,
+ debhelper-compat (= 12),
+ libfuse-dev [!hurd-any],
+ libjpeg-dev,
+ libcmocka-dev,
+ libopus-dev,
+ libpam0g-dev,
+ libssl-dev,
+ libtool,
+ libx11-dev,
+ libxfixes-dev,
+ libxrandr-dev,
+ nasm [amd64 hurd-i386 i386 kfreebsd-amd64 kfreebsd-i386],
+ openssl,
+ pkgconf,
+ systemd [linux-any],
+Homepage: http://www.xrdp.org/
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/debian-remote-team/xrdp
+Vcs-Git: https://salsa.debian.org/debian-remote-team/xrdp.git
+
+Package: xrdp
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ adduser,
+ sysvinit-utils (>= 3.06-4),
+ libfdk-aac2,
+ x264,
+ ssl-cert,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ fuse [!hurd-any],
+ xorgxrdp,
+Suggests:
+ guacamole,
+Description: Remote Desktop Protocol (RDP) server
+ xrdp offers a graphical login to a remote client using
+ RDP (the Remote Desktop Protocol). xrdp can connect to
+ a locally created X.org session with the xorgxrdp drivers,
+ to a VNC X11 server, and forward to another RDP server.
+ .
+ xrdp accepts connections from freerdp, rdesktop, and the
+ built-in terminal server / remote desktop clients of
+ Microsoft Windows operating systems.
+ In the xorgxrdp (which replaces X11RDP) and VNC modes,
+ it provides a fully functional Linux terminal server,
+ offering an X-Window desktop to the user. In the RDP
+ or VNC forwarding mode, any sort of desktop can be used.
