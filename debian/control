@@ -15,6 +15,9 @@ Build-Depends:
  libx264-dev,
  libfdk-aac-dev,
  libxkbfile-dev,
+ libpixman-1-dev,
+ libimlib2-dev,
+ libibus-1.0-dev,
  debhelper-compat (= 12),
  libfuse-dev [!hurd-any],
  libjpeg-dev,
@@ -41,9 +44,12 @@ Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends:
  adduser,
- sysvinit-utils (>= 3.06-4),
+ sysvinit-utils,
  libfdk-aac2,
  x264,
+ libpixman-1-0,
+ ibus,
+ libimlib2,
  ssl-cert,
  ${misc:Depends},
  ${shlibs:Depends},
